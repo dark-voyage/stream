@@ -8,11 +8,10 @@
 
 </head>
 <body>
-<!-- partial:index.partial.html -->
 <div class="noise"></div>
 <div class="overlay"></div>
 <div class="terminal">
-  <pre>
+  <pre id="figlet">
     &nbsp;____  __
     / __ \/ /_
    / / / / __ \
@@ -21,7 +20,30 @@
   </pre>
   <div class="output" style="text-align: center;">is anyone there? ಥ_ಥ <</div>
 </div>
-<!-- partial -->
-  
+<script>
+
+  const startingStamp = [
+    "     __   ____  __                _\n   _/_/  / __ \\/ /_              | |\n  / /   / / / / __ \\             / /\n / /   / /_/ / / / /  _ _ _     / /\n/ /    \\____/_/ /_/  (_|_|_)  _/_/\n|_|                          /_/\n\n",
+    "     __ __   ____  __                _  _\n   _/_//_/  / __ \\/ /_              | || |\n  / // /   / / / / __ \\             / // /\n / // /   / /_/ / / / /  _ _ _     / // /\n/ // /    \\____/_/ /_/  (_|_|_)  _/_//_/\n|_||_|                          /_//_/\n\n",
+    "     __ __ __   ____  __                _  _  _\n   _/_//_//_/  / __ \\/ /_              | || || |\n  / // // /   / / / / __ \\             / // // /\n / // // /   / /_/ / / / /  _ _ _     / // // /\n/ // // /    \\____/_/ /_/  (_|_|_)  _/_//_//_/\n|_||_||_|                          /_//_//_/\n\n",
+  ];
+
+  const loader = () => {
+      let loads = 2;
+
+      setInterval(function () {
+          if (loads < 0) {
+              loads = 2;
+              document.getElementById("figlet").innerHTML = startingStamp[loads];
+              loads--;
+          } else {
+              document.getElementById("figlet").innerHTML = startingStamp[loads];
+              loads--;
+          }
+      }, 1000);
+  };
+
+  loader()
+</script>
 </body>
 </html>
